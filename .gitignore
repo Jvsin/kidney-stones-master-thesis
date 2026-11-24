@@ -1,0 +1,24 @@
+# Dane lokalne; zachowaj wyłącznie strukturę katalogów.
+/datasets/raw/*
+!/datasets/raw/.gitkeep
+/datasets/interim/*
+!/datasets/interim/.gitkeep
+/datasets/processed/*
+!/datasets/processed/.gitkeep
+
+# DICOM
+*.[dD][cC][mM]
+*.[dD][iI][cC][oO][mM]
+
+# NIfTI, w tym warianty dwplikowe
+*.[nN][iI][iI]
+*.[nN][iI][iI].[gG][zZ]
+*.[hH][dD][rR]
+*.[iI][mM][gG]
+*.[hH][dD][rR].[gG][zZ]
+*.[iI][mM][gG].[gG][zZ]
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
