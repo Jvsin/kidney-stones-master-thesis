@@ -13,8 +13,26 @@ nerkowych.
 - `models/` – implementacje modeli bazowych i proponowanej metody.
 - `tools/` – pomocnicze skrypty do pracy z danymi i eksperymentami.
 
-Katalogi są przygotowane jako szkielet projektu; nie zawierają jeszcze implementacji
-modeli ani przetwarzania danych.
+## Weryfikacja zbioru Chinese
+
+Zainstaluj zależności w środowisku Python i uruchom:
+
+```powershell
+python -m pip install -r requirements.txt
+python tools\verify_chinese.py > datasets\chinese\verification_report.txt
+```
+
+Skrypt wyszukuje pary `*_image.nii.gz` i `*_mask.nii.gz` we wszystkich częściach
+zbioru. Wypisuje dla każdego pacjenta wymiary, rozmiar woksela i liczebność
+etykiet oraz porównuje geometrię obrazu i maski. Na końcu podaje rozkład rozmiarów
+wokseli, listy masek pustych i pozbawionych każdej z etykiet oraz wykryte problemy.
+Domyślnie oczekuje 260 par; inną liczbę można podać przez `--expected-count`.
+Porównanie z orientacyjnymi zakresami spacingu używa zaokrąglenia do liczby miejsc
+po przecinku podanej dla danego zakresu (trzy dla XY, dwa dla Z).
+Znaczenie etykiet wymaga potwierdzenia w dokumentacji zbioru; po potwierdzeniu można
+wskazać etykietę kamienia opcją `--stone-label 1` lub `--stone-label 2`. Brak tej
+etykiety nie dowodzi błędu bez niezależnej informacji o obecności kamieni.
+Wynikowy raport jest lokalny i ignorowany przez Git.
 
 ## Dane medyczne i Git
 

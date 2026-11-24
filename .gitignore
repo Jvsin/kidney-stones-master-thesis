@@ -5,6 +5,7 @@
 !/datasets/interim/.gitkeep
 /datasets/processed/*
 !/datasets/processed/.gitkeep
+/datasets/chinese/verification_report.txt
 
 # DICOM
 *.[dD][cC][mM]
