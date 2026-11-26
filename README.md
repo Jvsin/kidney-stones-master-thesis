@@ -36,8 +36,13 @@ Wynikowy raport jest lokalny i ignorowany przez Git.
 
 ## Podział zbioru Chinese
 
-Stały podział 70% / 15% / 15% jest tworzony wyłącznie na poziomie pacjenta,
-ze stratyfikacją według etykiety kamienia:
+Stały podział 70% / 15% / 15% jest tworzony wyłącznie na poziomie pacjenta.
+Stratyfikacja obejmuje brak kamienia oraz wielkość największego pojedynczego
+kamienia, mierzoną jako objętość największej składowej 6-spójnej w masce:
+
+- mały: $0 < V \leq 28\ \mathrm{mm}^3$
+- średni: $28 < V \leq 315\ \mathrm{mm}^3$
+- duży: $V > 315\ \mathrm{mm}^3$
 
 ```powershell
 python tools\split_chinese.py
@@ -45,10 +50,40 @@ python tools\split_chinese.py
 
 Manifest domyślnie zapisuje się jako
 `datasets/chinese/patient_splits.json`. Zawiera osobno ścieżki obrazu i maski
-dla każdego pacjenta oraz liczbę chorych i zdrowych w zbiorach train, validation
-i test. Ten sam `--seed` daje identyczny podział, a obecność kamienia jest
-domyślnie rozpoznawana przez etykietę 1. Podział dla aktualnego zbioru
-(209 chorych i 51 zdrowych) ma 182 / 39 / 39 pacjentów w kolejnych zbiorach.
+dla każdego pacjenta, objętość największego kamienia i liczbę pacjentów w każdej
+klasie wielkości w zbiorach train, validation i test. Ten sam `--seed` daje
+identyczny podział, a obecność kamienia jest domyślnie rozpoznawana przez
+etykietę 1. Objętość jest liczona na podstawie liczby wokseli składowej oraz
+rzeczywistego spacingu obrazu w mm³.
+
+Aktualny zbiór zawiera 51 pacjentów bez kamienia, 14 z największym kamieniem
+małym, 40 średnim i 155 dużym. Podział zapisany dla `seed=42`:
+
+| Zbiór | Pacjenci | Bez kamienia | Małe | Średnie | Duże |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Train | 182 | 36 | 10 | 28 | 108 |
+| Validation | 39 | 8 | 2 | 6 | 23 |
+| Test | 39 | 7 | 2 | 6 | 24 |
+
+## Viewer NIfTI
+
+Instalując `matplotlib`, można przejrzeć obraz i wybraną etykietę maski:
+
+```powershell
+python tools\view_nifti.py datasets\chinese\part1\wd0000_ps_image.nii.gz
+```
+
+Do wyboru etykiety maski służy panel `Mask`, bez automatycznego założenia,
+która etykieta oznacza kamień, a która nerki. Przekroje X/Y/Z zmienia się
+suwakami albo kółkiem myszy nad odpowiednim widokiem. Można również podać
+maskę jako pierwszy argument:
+
+```powershell
+python tools\view_nifti.py datasets\chinese\part1\wd0000_ps_mask.nii.gz --label 1
+```
+
+Jeżeli nazwy nie mają standardowych sufiksów `_image` i `_mask`, ścieżkę maski
+można wskazać osobno przez `--mask`.
 
 ## Dane medyczne i Git
 

@@ -1,7 +1,6 @@
 """Create a deterministic, patient-level stratified split for the Chinese dataset."""
 
 import argparse
-import itertools
 import json
 import random
 from collections import Counter
@@ -10,11 +9,15 @@ from typing import Any
 
 import nibabel as nib
 import numpy as np
+from scipy import ndimage
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RATIOS = (0.70, 0.15, 0.15)
 SPLIT_NAMES = ("train", "val", "test")
+SIZE_CLASSES = ("none", "small", "medium", "large")
+SMALL_MAX_MM3 = 28.0
+MEDIUM_MAX_MM3 = 315.0
 
 
 def discover_patients(dataset: Path) -> list[dict[str, Any]]:
@@ -59,10 +62,42 @@ def classify_patients(
         mask_path = dataset / patient["mask"]
         try:
             mask = nib.load(str(mask_path))
-            has_stones = bool(np.any(np.asanyarray(mask.dataobj) == stone_label))
+            mask_data = np.asanyarray(mask.dataobj)
+            stone_voxels = np.argwhere(mask_data == stone_label)
+            if len(stone_voxels):
+                minimum = stone_voxels.min(axis=0)
+                maximum = stone_voxels.max(axis=0) + 1
+                region = tuple(slice(start, stop) for start, stop in zip(minimum, maximum))
+                stone_mask = mask_data[region] == stone_label
+                components, component_count = ndimage.label(
+                    stone_mask, structure=ndimage.generate_binary_structure(3, 1)
+                )
+                component_voxels = np.bincount(components.ravel(), minlength=component_count + 1)[1:]
+                voxel_volume = float(np.prod(mask.header.get_zooms()[:3]))
+                largest_stone_voxels = int(component_voxels.max())
+                largest_stone_mm3 = largest_stone_voxels * voxel_volume
+            else:
+                largest_stone_voxels = 0
+                largest_stone_mm3 = 0.0
         except (OSError, EOFError, ValueError, nib.filebasedimages.ImageFileError) as exc:
             raise ValueError(f"{patient['patient_id']}: cannot read mask: {exc}") from exc
-        classified.append({**patient, "has_stones": has_stones})
+        if largest_stone_mm3 == 0:
+            stone_size_class = "none"
+        elif largest_stone_mm3 <= SMALL_MAX_MM3:
+            stone_size_class = "small"
+        elif largest_stone_mm3 <= MEDIUM_MAX_MM3:
+            stone_size_class = "medium"
+        else:
+            stone_size_class = "large"
+        classified.append(
+            {
+                **patient,
+                "has_stones": stone_size_class != "none",
+                "stone_size_class": stone_size_class,
+                "largest_stone_voxels": largest_stone_voxels,
+                "largest_stone_mm3": round(largest_stone_mm3, 6),
+            }
+        )
     return classified
 
 
@@ -79,39 +114,31 @@ def _largest_remainder_counts(total: int, ratios: tuple[float, float, float]) ->
 def _allocation_matrix(
     class_counts: list[int], split_totals: list[int], ratios: tuple[float, float, float]
 ) -> list[list[int]]:
-    if len(class_counts) != 2:
-        raise ValueError("Exactly two classes are required for stratification")
+    ideals = [[class_count * ratio for ratio in ratios] for class_count in class_counts]
+    matrix = [[0 for _ in split_totals] for _ in class_counts]
+    row_remaining = list(class_counts)
+    column_remaining = list(split_totals)
 
-    ideals = [
-        [class_count * ratio for ratio in ratios]
-        for class_count in class_counts
-    ]
-    floors = [[int(value) for value in row] for row in ideals]
-    candidates = []
-    for increments in itertools.product((0, 1), repeat=len(split_totals)):
-        first_row = [
-            floors[0][index] + increment
-            for index, increment in enumerate(increments)
-        ]
-        if sum(first_row) != class_counts[0]:
-            continue
-        second_row = [
-            split_total - first_count
-            for split_total, first_count in zip(split_totals, first_row)
-        ]
-        if min(second_row) < 0 or sum(second_row) != class_counts[1]:
-            continue
-        matrix = [first_row, second_row]
-        error = sum(
-            abs(matrix[row][column] - ideals[row][column])
-            for row in range(2)
+    while sum(row_remaining):
+        candidates = [
+            (
+                ideals[row][column] - matrix[row][column],
+                -row,
+                -column,
+                row,
+                column,
+            )
+            for row in range(len(class_counts))
             for column in range(len(split_totals))
-        )
-        candidates.append((error, first_row, matrix))
-
-    if not candidates:
-        raise ValueError("Cannot satisfy split totals while preserving class stratification")
-    return min(candidates)[2]
+            if row_remaining[row] and column_remaining[column]
+        ]
+        if not candidates:
+            raise ValueError("Cannot satisfy split totals while preserving class stratification")
+        _, _, _, row, column = max(candidates)
+        matrix[row][column] += 1
+        row_remaining[row] -= 1
+        column_remaining[column] -= 1
+    return matrix
 
 
 def stratify_patients(
@@ -128,26 +155,38 @@ def stratify_patients(
     if len(patient_ids) != len(set(patient_ids)):
         raise ValueError("Patient identifiers must be unique before splitting")
 
-    grouped = [[], []]
+    stratum_key = "stone_size_class" if any(
+        "stone_size_class" in patient for patient in patients
+    ) else "has_stones"
+    strata = SIZE_CLASSES if stratum_key == "stone_size_class" else (False, True)
+    grouped = {stratum: [] for stratum in strata}
     for patient in patients:
-        grouped[int(bool(patient["has_stones"]))].append(patient)
+        if stratum_key == "stone_size_class":
+            stratum = patient.get(stratum_key)
+            if stratum not in grouped:
+                raise ValueError(f"Unknown stone size class: {stratum!r}")
+        else:
+            stratum = bool(patient["has_stones"])
+        grouped[stratum].append(patient)
 
-    class_counts = [len(grouped[0]), len(grouped[1])]
-    if 0 in class_counts:
-        raise ValueError("Both patients with and without stones are required for stratification")
+    strata = tuple(stratum for stratum in strata if grouped[stratum])
+    if not strata:
+        raise ValueError("No patients available for stratification")
+    class_counts = [len(grouped[stratum]) for stratum in strata]
     split_totals = _largest_remainder_counts(len(patients), ratios)
     if any(total < len(class_counts) for total in split_totals):
         raise ValueError("Each split must contain enough patients for every class")
 
     allocation = _allocation_matrix(class_counts, split_totals, ratios)
     rng = random.Random(seed)
-    for group in grouped:
-        rng.shuffle(group)
+    for stratum in strata:
+        rng.shuffle(grouped[stratum])
 
     splits: dict[str, list[dict[str, Any]]] = {name: [] for name in SPLIT_NAMES}
-    offsets = [0, 0]
+    offsets = [0 for _ in class_counts]
     for split_index, name in enumerate(SPLIT_NAMES):
-        for class_index, group in enumerate(grouped):
+        for class_index, stratum in enumerate(strata):
+            group = grouped[stratum]
             count = allocation[class_index][split_index]
             start = offsets[class_index]
             splits[name].extend(group[start : start + count])
@@ -170,17 +209,28 @@ def create_split_manifest(
     summary = {}
     for name, split in splits.items():
         with_stones = sum(patient["has_stones"] for patient in split)
+        size_distribution = Counter(patient["stone_size_class"] for patient in split)
         summary[name] = {
             "patients": len(split),
             "with_stones": with_stones,
             "without_stones": len(split) - with_stones,
             "stone_prevalence": with_stones / len(split),
+            "size_distribution": {
+                size_class: size_distribution[size_class] for size_class in SIZE_CLASSES
+            },
         }
     return {
         "dataset": str(dataset.resolve()),
         "seed": seed,
         "stone_label": stone_label,
         "ratios": dict(zip(SPLIT_NAMES, ratios)),
+        "stratification": "largest_stone_volume_mm3",
+        "connectivity": "face (6-connected)",
+        "size_thresholds_mm3": {
+            "small": f"0 < volume <= {SMALL_MAX_MM3:g}",
+            "medium": f"{SMALL_MAX_MM3:g} < volume <= {MEDIUM_MAX_MM3:g}",
+            "large": f"volume > {MEDIUM_MAX_MM3:g}",
+        },
         "summary": summary,
         "splits": splits,
     }

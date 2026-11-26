@@ -1,12 +1,16 @@
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+
+import nibabel as nib
+import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.split_chinese import stratify_patients  # noqa: E402
+from tools.split_chinese import MEDIUM_MAX_MM3, SMALL_MAX_MM3, classify_patients, stratify_patients  # noqa: E402
 
 
 class SplitChineseTests(unittest.TestCase):
@@ -18,6 +22,7 @@ class SplitChineseTests(unittest.TestCase):
                 "image": f"positive_{index:03d}_image.nii.gz",
                 "mask": f"positive_{index:03d}_mask.nii.gz",
                 "has_stones": True,
+                "stone_size_class": "small",
             }
             for index in range(with_stones)
         ]
@@ -27,6 +32,7 @@ class SplitChineseTests(unittest.TestCase):
                 "image": f"negative_{index:03d}_image.nii.gz",
                 "mask": f"negative_{index:03d}_mask.nii.gz",
                 "has_stones": False,
+                "stone_size_class": "none",
             }
             for index in range(without_stones)
         ]
@@ -39,7 +45,7 @@ class SplitChineseTests(unittest.TestCase):
         self.assertEqual([len(splits[name]) for name in ("train", "val", "test")], [182, 39, 39])
         self.assertEqual(
             [sum(patient["has_stones"] for patient in splits[name]) for name in ("train", "val", "test")],
-            [146, 32, 31],
+            [146, 31, 32],
         )
         self.assertEqual(
             sum(
@@ -64,6 +70,39 @@ class SplitChineseTests(unittest.TestCase):
         patients.append(dict(patients[0]))
         with self.assertRaisesRegex(ValueError, "Patient identifiers must be unique"):
             stratify_patients(patients)
+
+    def test_split_preserves_all_stone_size_classes(self):
+        patients = self.patients(80, 20)
+        for index, patient in enumerate(patients[:80]):
+            patient["stone_size_class"] = ("small", "medium", "large")[index % 3]
+            patient["largest_stone_mm3"] = (SMALL_MAX_MM3, MEDIUM_MAX_MM3, MEDIUM_MAX_MM3 + 1)[index % 3]
+
+        splits = stratify_patients(patients)
+        for name in ("train", "val", "test"):
+            self.assertEqual(
+                {patient["stone_size_class"] for patient in splits[name]},
+                {"none", "small", "medium", "large"},
+            )
+
+    def test_classification_uses_largest_face_connected_component(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            dataset = Path(temporary_directory)
+            mask = np.zeros((8, 8, 8), dtype=np.uint8)
+            mask[0:3, 0:3, 0:4] = 1
+            mask[6, 6, 6] = 1
+            affine = np.diag([1, 1, 1, 1])
+            nib.save(nib.Nifti1Image(mask, affine), dataset / "patient_ps_mask.nii.gz")
+            patient = {
+                "patient_id": "patient_ps",
+                "image": "patient_ps_image.nii.gz",
+                "mask": "patient_ps_mask.nii.gz",
+            }
+
+            classified = classify_patients(dataset, [patient], stone_label=1)[0]
+
+            self.assertEqual(classified["stone_size_class"], "medium")
+            self.assertEqual(classified["largest_stone_voxels"], 36)
+            self.assertEqual(classified["largest_stone_mm3"], 36.0)
 
 
 if __name__ == "__main__":
