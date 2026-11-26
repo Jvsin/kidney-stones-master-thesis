@@ -5,7 +5,8 @@
 !/datasets/interim/.gitkeep
 /datasets/processed/*
 !/datasets/processed/.gitkeep
-/datasets/chinese/verification_report.txt
+# /datasets/chinese/verification_report.txt
+# /datasets/chinese/patient_splits.json
 
 # DICOM
 *.[dD][cC][mM]

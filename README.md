@@ -34,6 +34,22 @@ wskazać etykietę kamienia opcją `--stone-label 1` lub `--stone-label 2`. Brak
 etykiety nie dowodzi błędu bez niezależnej informacji o obecności kamieni.
 Wynikowy raport jest lokalny i ignorowany przez Git.
 
+## Podział zbioru Chinese
+
+Stały podział 70% / 15% / 15% jest tworzony wyłącznie na poziomie pacjenta,
+ze stratyfikacją według etykiety kamienia:
+
+```powershell
+python tools\split_chinese.py
+```
+
+Manifest domyślnie zapisuje się jako
+`datasets/chinese/patient_splits.json`. Zawiera osobno ścieżki obrazu i maski
+dla każdego pacjenta oraz liczbę chorych i zdrowych w zbiorach train, validation
+i test. Ten sam `--seed` daje identyczny podział, a obecność kamienia jest
+domyślnie rozpoznawana przez etykietę 1. Podział dla aktualnego zbioru
+(209 chorych i 51 zdrowych) ma 182 / 39 / 39 pacjentów w kolejnych zbiorach.
+
 ## Dane medyczne i Git
 
 Zawartość katalogów danych jest ignorowana przez Git, z wyjątkiem plików `.gitkeep`

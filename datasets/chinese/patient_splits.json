@@ -1,0 +1,1598 @@
+{
+  "dataset": "D:\\kidney-stones-master-thesis\\datasets\\chinese",
+  "seed": 42,
+  "stone_label": 1,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "summary": {
+    "train": {
+      "patients": 182,
+      "with_stones": 146,
+      "without_stones": 36,
+      "stone_prevalence": 0.8021978021978022
+    },
+    "val": {
+      "patients": 39,
+      "with_stones": 32,
+      "without_stones": 7,
+      "stone_prevalence": 0.8205128205128205
+    },
+    "test": {
+      "patients": 39,
+      "with_stones": 31,
+      "without_stones": 8,
+      "stone_prevalence": 0.7948717948717948
+    }
+  },
+  "splits": {
+    "train": [
+      {
+        "patient_id": "wd0000_ps",
+        "image": "part1/wd0000_ps_image.nii.gz",
+        "mask": "part1/wd0000_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0001_ps",
+        "image": "part1/wd0001_ps_image.nii.gz",
+        "mask": "part1/wd0001_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0002_ps",
+        "image": "part1/wd0002_ps_image.nii.gz",
+        "mask": "part1/wd0002_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0003_ps",
+        "image": "part1/wd0003_ps_image.nii.gz",
+        "mask": "part1/wd0003_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0004_ps",
+        "image": "part1/wd0004_ps_image.nii.gz",
+        "mask": "part1/wd0004_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0005_ps",
+        "image": "part1/wd0005_ps_image.nii.gz",
+        "mask": "part1/wd0005_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0006_ps",
+        "image": "part1/wd0006_ps_image.nii.gz",
+        "mask": "part1/wd0006_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0009_ps",
+        "image": "part1/wd0009_ps_image.nii.gz",
+        "mask": "part1/wd0009_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0010_ps",
+        "image": "part1/wd0010_ps_image.nii.gz",
+        "mask": "part1/wd0010_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0011_ps",
+        "image": "part1/wd0011_ps_image.nii.gz",
+        "mask": "part1/wd0011_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0012_ps",
+        "image": "part1/wd0012_ps_image.nii.gz",
+        "mask": "part1/wd0012_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0015_ps",
+        "image": "part1/wd0015_ps_image.nii.gz",
+        "mask": "part1/wd0015_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0018_ps",
+        "image": "part1/wd0018_ps_image.nii.gz",
+        "mask": "part1/wd0018_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0021_ps",
+        "image": "part1/wd0021_ps_image.nii.gz",
+        "mask": "part1/wd0021_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0022_ps",
+        "image": "part1/wd0022_ps_image.nii.gz",
+        "mask": "part1/wd0022_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0023_ps",
+        "image": "part1/wd0023_ps_image.nii.gz",
+        "mask": "part1/wd0023_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0024_ps",
+        "image": "part1/wd0024_ps_image.nii.gz",
+        "mask": "part1/wd0024_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0025_ps",
+        "image": "part1/wd0025_ps_image.nii.gz",
+        "mask": "part1/wd0025_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0026_ps",
+        "image": "part1/wd0026_ps_image.nii.gz",
+        "mask": "part1/wd0026_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0028_ps",
+        "image": "part1/wd0028_ps_image.nii.gz",
+        "mask": "part1/wd0028_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0032_ps",
+        "image": "part1/wd0032_ps_image.nii.gz",
+        "mask": "part1/wd0032_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0033_ps",
+        "image": "part1/wd0033_ps_image.nii.gz",
+        "mask": "part1/wd0033_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0035_ps",
+        "image": "part1/wd0035_ps_image.nii.gz",
+        "mask": "part1/wd0035_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0036_ps",
+        "image": "part1/wd0036_ps_image.nii.gz",
+        "mask": "part1/wd0036_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0038_ps",
+        "image": "part1/wd0038_ps_image.nii.gz",
+        "mask": "part1/wd0038_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0039_ps",
+        "image": "part1/wd0039_ps_image.nii.gz",
+        "mask": "part1/wd0039_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0041_ps",
+        "image": "part1/wd0041_ps_image.nii.gz",
+        "mask": "part1/wd0041_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0042_ps",
+        "image": "part1/wd0042_ps_image.nii.gz",
+        "mask": "part1/wd0042_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0043_ps",
+        "image": "part1/wd0043_ps_image.nii.gz",
+        "mask": "part1/wd0043_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0044_ps",
+        "image": "part1/wd0044_ps_image.nii.gz",
+        "mask": "part1/wd0044_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0045_ps",
+        "image": "part1/wd0045_ps_image.nii.gz",
+        "mask": "part1/wd0045_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0047_ps",
+        "image": "part1/wd0047_ps_image.nii.gz",
+        "mask": "part1/wd0047_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0048_ps",
+        "image": "part1/wd0048_ps_image.nii.gz",
+        "mask": "part1/wd0048_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0049_ps",
+        "image": "part1/wd0049_ps_image.nii.gz",
+        "mask": "part1/wd0049_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0050_ps",
+        "image": "part2/wd0050_ps_image.nii.gz",
+        "mask": "part2/wd0050_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0052_ps",
+        "image": "part2/wd0052_ps_image.nii.gz",
+        "mask": "part2/wd0052_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0054_ps",
+        "image": "part2/wd0054_ps_image.nii.gz",
+        "mask": "part2/wd0054_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0055_ps",
+        "image": "part2/wd0055_ps_image.nii.gz",
+        "mask": "part2/wd0055_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0056_ps",
+        "image": "part2/wd0056_ps_image.nii.gz",
+        "mask": "part2/wd0056_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0057_ps",
+        "image": "part2/wd0057_ps_image.nii.gz",
+        "mask": "part2/wd0057_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0059_ps",
+        "image": "part2/wd0059_ps_image.nii.gz",
+        "mask": "part2/wd0059_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0061_ps",
+        "image": "part2/wd0061_ps_image.nii.gz",
+        "mask": "part2/wd0061_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0062_ps",
+        "image": "part2/wd0062_ps_image.nii.gz",
+        "mask": "part2/wd0062_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0063_ps",
+        "image": "part2/wd0063_ps_image.nii.gz",
+        "mask": "part2/wd0063_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0064_ps",
+        "image": "part2/wd0064_ps_image.nii.gz",
+        "mask": "part2/wd0064_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0065_ps",
+        "image": "part2/wd0065_ps_image.nii.gz",
+        "mask": "part2/wd0065_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0068_ps",
+        "image": "part2/wd0068_ps_image.nii.gz",
+        "mask": "part2/wd0068_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0069_ps",
+        "image": "part2/wd0069_ps_image.nii.gz",
+        "mask": "part2/wd0069_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0070_ps",
+        "image": "part2/wd0070_ps_image.nii.gz",
+        "mask": "part2/wd0070_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0071_ps",
+        "image": "part2/wd0071_ps_image.nii.gz",
+        "mask": "part2/wd0071_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0074_ps",
+        "image": "part2/wd0074_ps_image.nii.gz",
+        "mask": "part2/wd0074_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0076_ps",
+        "image": "part2/wd0076_ps_image.nii.gz",
+        "mask": "part2/wd0076_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0079_ps",
+        "image": "part2/wd0079_ps_image.nii.gz",
+        "mask": "part2/wd0079_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0080_ps",
+        "image": "part2/wd0080_ps_image.nii.gz",
+        "mask": "part2/wd0080_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0082_ps",
+        "image": "part2/wd0082_ps_image.nii.gz",
+        "mask": "part2/wd0082_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0083_ps",
+        "image": "part2/wd0083_ps_image.nii.gz",
+        "mask": "part2/wd0083_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0084_ps",
+        "image": "part2/wd0084_ps_image.nii.gz",
+        "mask": "part2/wd0084_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0085_ps",
+        "image": "part2/wd0085_ps_image.nii.gz",
+        "mask": "part2/wd0085_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0086_ps",
+        "image": "part2/wd0086_ps_image.nii.gz",
+        "mask": "part2/wd0086_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0087_ps",
+        "image": "part2/wd0087_ps_image.nii.gz",
+        "mask": "part2/wd0087_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0090_ps",
+        "image": "part2/wd0090_ps_image.nii.gz",
+        "mask": "part2/wd0090_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0092_ps",
+        "image": "part2/wd0092_ps_image.nii.gz",
+        "mask": "part2/wd0092_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0093_ps",
+        "image": "part2/wd0093_ps_image.nii.gz",
+        "mask": "part2/wd0093_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0094_ps",
+        "image": "part2/wd0094_ps_image.nii.gz",
+        "mask": "part2/wd0094_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0095_ps",
+        "image": "part2/wd0095_ps_image.nii.gz",
+        "mask": "part2/wd0095_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0096_ps",
+        "image": "part2/wd0096_ps_image.nii.gz",
+        "mask": "part2/wd0096_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0098_ps",
+        "image": "part2/wd0098_ps_image.nii.gz",
+        "mask": "part2/wd0098_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0099_ps",
+        "image": "part2/wd0099_ps_image.nii.gz",
+        "mask": "part2/wd0099_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0101_ps",
+        "image": "part3/wd0101_ps_image.nii.gz",
+        "mask": "part3/wd0101_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0103_ps",
+        "image": "part3/wd0103_ps_image.nii.gz",
+        "mask": "part3/wd0103_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0104_ps",
+        "image": "part3/wd0104_ps_image.nii.gz",
+        "mask": "part3/wd0104_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0105_ps",
+        "image": "part3/wd0105_ps_image.nii.gz",
+        "mask": "part3/wd0105_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0106_ps",
+        "image": "part3/wd0106_ps_image.nii.gz",
+        "mask": "part3/wd0106_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0108_ps",
+        "image": "part3/wd0108_ps_image.nii.gz",
+        "mask": "part3/wd0108_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0109_ps",
+        "image": "part3/wd0109_ps_image.nii.gz",
+        "mask": "part3/wd0109_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0111_ps",
+        "image": "part3/wd0111_ps_image.nii.gz",
+        "mask": "part3/wd0111_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0112_ps",
+        "image": "part3/wd0112_ps_image.nii.gz",
+        "mask": "part3/wd0112_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0113_ps",
+        "image": "part3/wd0113_ps_image.nii.gz",
+        "mask": "part3/wd0113_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0114_ps",
+        "image": "part3/wd0114_ps_image.nii.gz",
+        "mask": "part3/wd0114_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0115_ps",
+        "image": "part3/wd0115_ps_image.nii.gz",
+        "mask": "part3/wd0115_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0116_ps",
+        "image": "part3/wd0116_ps_image.nii.gz",
+        "mask": "part3/wd0116_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0118_ps",
+        "image": "part3/wd0118_ps_image.nii.gz",
+        "mask": "part3/wd0118_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0122_ps",
+        "image": "part3/wd0122_ps_image.nii.gz",
+        "mask": "part3/wd0122_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0125_ps",
+        "image": "part3/wd0125_ps_image.nii.gz",
+        "mask": "part3/wd0125_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0126_ps",
+        "image": "part3/wd0126_ps_image.nii.gz",
+        "mask": "part3/wd0126_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0127_ps",
+        "image": "part3/wd0127_ps_image.nii.gz",
+        "mask": "part3/wd0127_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0131_ps",
+        "image": "part3/wd0131_ps_image.nii.gz",
+        "mask": "part3/wd0131_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0132_ps",
+        "image": "part3/wd0132_ps_image.nii.gz",
+        "mask": "part3/wd0132_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0133_ps",
+        "image": "part3/wd0133_ps_image.nii.gz",
+        "mask": "part3/wd0133_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0134_ps",
+        "image": "part3/wd0134_ps_image.nii.gz",
+        "mask": "part3/wd0134_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0135_ps",
+        "image": "part3/wd0135_ps_image.nii.gz",
+        "mask": "part3/wd0135_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0136_ps",
+        "image": "part3/wd0136_ps_image.nii.gz",
+        "mask": "part3/wd0136_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0137_ps",
+        "image": "part3/wd0137_ps_image.nii.gz",
+        "mask": "part3/wd0137_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0138_ps",
+        "image": "part3/wd0138_ps_image.nii.gz",
+        "mask": "part3/wd0138_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0139_ps",
+        "image": "part3/wd0139_ps_image.nii.gz",
+        "mask": "part3/wd0139_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0140_ps",
+        "image": "part3/wd0140_ps_image.nii.gz",
+        "mask": "part3/wd0140_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0141_ps",
+        "image": "part3/wd0141_ps_image.nii.gz",
+        "mask": "part3/wd0141_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0142_ps",
+        "image": "part3/wd0142_ps_image.nii.gz",
+        "mask": "part3/wd0142_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0143_ps",
+        "image": "part3/wd0143_ps_image.nii.gz",
+        "mask": "part3/wd0143_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0144_ps",
+        "image": "part3/wd0144_ps_image.nii.gz",
+        "mask": "part3/wd0144_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0145_ps",
+        "image": "part3/wd0145_ps_image.nii.gz",
+        "mask": "part3/wd0145_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0146_ps",
+        "image": "part3/wd0146_ps_image.nii.gz",
+        "mask": "part3/wd0146_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0147_ps",
+        "image": "part3/wd0147_ps_image.nii.gz",
+        "mask": "part3/wd0147_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0148_ps",
+        "image": "part3/wd0148_ps_image.nii.gz",
+        "mask": "part3/wd0148_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0149_ps",
+        "image": "part3/wd0149_ps_image.nii.gz",
+        "mask": "part3/wd0149_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0153_ps",
+        "image": "part4/wd0153_ps_image.nii.gz",
+        "mask": "part4/wd0153_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0154_ps",
+        "image": "part4/wd0154_ps_image.nii.gz",
+        "mask": "part4/wd0154_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0155_ps",
+        "image": "part4/wd0155_ps_image.nii.gz",
+        "mask": "part4/wd0155_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0156_ps",
+        "image": "part4/wd0156_ps_image.nii.gz",
+        "mask": "part4/wd0156_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0158_ps",
+        "image": "part4/wd0158_ps_image.nii.gz",
+        "mask": "part4/wd0158_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0159_ps",
+        "image": "part4/wd0159_ps_image.nii.gz",
+        "mask": "part4/wd0159_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0160_ps",
+        "image": "part4/wd0160_ps_image.nii.gz",
+        "mask": "part4/wd0160_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0161_ps",
+        "image": "part4/wd0161_ps_image.nii.gz",
+        "mask": "part4/wd0161_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0162_ps",
+        "image": "part4/wd0162_ps_image.nii.gz",
+        "mask": "part4/wd0162_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0164_ps",
+        "image": "part4/wd0164_ps_image.nii.gz",
+        "mask": "part4/wd0164_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0165_ps",
+        "image": "part4/wd0165_ps_image.nii.gz",
+        "mask": "part4/wd0165_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0166_ps",
+        "image": "part4/wd0166_ps_image.nii.gz",
+        "mask": "part4/wd0166_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0167_ps",
+        "image": "part4/wd0167_ps_image.nii.gz",
+        "mask": "part4/wd0167_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0168_ps",
+        "image": "part4/wd0168_ps_image.nii.gz",
+        "mask": "part4/wd0168_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0169_ps",
+        "image": "part4/wd0169_ps_image.nii.gz",
+        "mask": "part4/wd0169_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0171_ps",
+        "image": "part4/wd0171_ps_image.nii.gz",
+        "mask": "part4/wd0171_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0172_ps",
+        "image": "part4/wd0172_ps_image.nii.gz",
+        "mask": "part4/wd0172_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0173_ps",
+        "image": "part4/wd0173_ps_image.nii.gz",
+        "mask": "part4/wd0173_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0176_ps",
+        "image": "part4/wd0176_ps_image.nii.gz",
+        "mask": "part4/wd0176_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0177_ps",
+        "image": "part4/wd0177_ps_image.nii.gz",
+        "mask": "part4/wd0177_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0178_ps",
+        "image": "part4/wd0178_ps_image.nii.gz",
+        "mask": "part4/wd0178_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0181_ps",
+        "image": "part4/wd0181_ps_image.nii.gz",
+        "mask": "part4/wd0181_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0182_ps",
+        "image": "part4/wd0182_ps_image.nii.gz",
+        "mask": "part4/wd0182_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0184_ps",
+        "image": "part4/wd0184_ps_image.nii.gz",
+        "mask": "part4/wd0184_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0186_ps",
+        "image": "part4/wd0186_ps_image.nii.gz",
+        "mask": "part4/wd0186_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0187_ps",
+        "image": "part4/wd0187_ps_image.nii.gz",
+        "mask": "part4/wd0187_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0188_ps",
+        "image": "part4/wd0188_ps_image.nii.gz",
+        "mask": "part4/wd0188_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0189_ps",
+        "image": "part4/wd0189_ps_image.nii.gz",
+        "mask": "part4/wd0189_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0190_ps",
+        "image": "part4/wd0190_ps_image.nii.gz",
+        "mask": "part4/wd0190_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0191_ps",
+        "image": "part4/wd0191_ps_image.nii.gz",
+        "mask": "part4/wd0191_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0194_ps",
+        "image": "part4/wd0194_ps_image.nii.gz",
+        "mask": "part4/wd0194_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0195_ps",
+        "image": "part4/wd0195_ps_image.nii.gz",
+        "mask": "part4/wd0195_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0196_ps",
+        "image": "part4/wd0196_ps_image.nii.gz",
+        "mask": "part4/wd0196_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0197_ps",
+        "image": "part4/wd0197_ps_image.nii.gz",
+        "mask": "part4/wd0197_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0200_ps",
+        "image": "part5/wd0200_ps_image.nii.gz",
+        "mask": "part5/wd0200_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0201_ps",
+        "image": "part5/wd0201_ps_image.nii.gz",
+        "mask": "part5/wd0201_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0203_ps",
+        "image": "part5/wd0203_ps_image.nii.gz",
+        "mask": "part5/wd0203_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0204_ps",
+        "image": "part5/wd0204_ps_image.nii.gz",
+        "mask": "part5/wd0204_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0207_ps",
+        "image": "part5/wd0207_ps_image.nii.gz",
+        "mask": "part5/wd0207_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0208_ps",
+        "image": "part5/wd0208_ps_image.nii.gz",
+        "mask": "part5/wd0208_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0210_ps",
+        "image": "part5/wd0210_ps_image.nii.gz",
+        "mask": "part5/wd0210_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0211_ps",
+        "image": "part5/wd0211_ps_image.nii.gz",
+        "mask": "part5/wd0211_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0212_ps",
+        "image": "part5/wd0212_ps_image.nii.gz",
+        "mask": "part5/wd0212_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0214_ps",
+        "image": "part5/wd0214_ps_image.nii.gz",
+        "mask": "part5/wd0214_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0216_ps",
+        "image": "part5/wd0216_ps_image.nii.gz",
+        "mask": "part5/wd0216_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0217_ps",
+        "image": "part5/wd0217_ps_image.nii.gz",
+        "mask": "part5/wd0217_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0219_ps",
+        "image": "part5/wd0219_ps_image.nii.gz",
+        "mask": "part5/wd0219_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0220_ps",
+        "image": "part5/wd0220_ps_image.nii.gz",
+        "mask": "part5/wd0220_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0221_ps",
+        "image": "part5/wd0221_ps_image.nii.gz",
+        "mask": "part5/wd0221_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0223_ps",
+        "image": "part5/wd0223_ps_image.nii.gz",
+        "mask": "part5/wd0223_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0225_ps",
+        "image": "part5/wd0225_ps_image.nii.gz",
+        "mask": "part5/wd0225_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0226_ps",
+        "image": "part5/wd0226_ps_image.nii.gz",
+        "mask": "part5/wd0226_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0228_ps",
+        "image": "part5/wd0228_ps_image.nii.gz",
+        "mask": "part5/wd0228_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0230_ps",
+        "image": "part5/wd0230_ps_image.nii.gz",
+        "mask": "part5/wd0230_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0231_ps",
+        "image": "part5/wd0231_ps_image.nii.gz",
+        "mask": "part5/wd0231_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0233_ps",
+        "image": "part5/wd0233_ps_image.nii.gz",
+        "mask": "part5/wd0233_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0234_ps",
+        "image": "part5/wd0234_ps_image.nii.gz",
+        "mask": "part5/wd0234_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0235_ps",
+        "image": "part5/wd0235_ps_image.nii.gz",
+        "mask": "part5/wd0235_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0236_ps",
+        "image": "part5/wd0236_ps_image.nii.gz",
+        "mask": "part5/wd0236_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0237_ps",
+        "image": "part5/wd0237_ps_image.nii.gz",
+        "mask": "part5/wd0237_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0239_ps",
+        "image": "part5/wd0239_ps_image.nii.gz",
+        "mask": "part5/wd0239_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0240_ps",
+        "image": "part5/wd0240_ps_image.nii.gz",
+        "mask": "part5/wd0240_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0241_ps",
+        "image": "part5/wd0241_ps_image.nii.gz",
+        "mask": "part5/wd0241_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0242_ps",
+        "image": "part5/wd0242_ps_image.nii.gz",
+        "mask": "part5/wd0242_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0243_ps",
+        "image": "part5/wd0243_ps_image.nii.gz",
+        "mask": "part5/wd0243_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0244_ps",
+        "image": "part5/wd0244_ps_image.nii.gz",
+        "mask": "part5/wd0244_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0245_ps",
+        "image": "part5/wd0245_ps_image.nii.gz",
+        "mask": "part5/wd0245_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0246_ps",
+        "image": "part5/wd0246_ps_image.nii.gz",
+        "mask": "part5/wd0246_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0247_ps",
+        "image": "part5/wd0247_ps_image.nii.gz",
+        "mask": "part5/wd0247_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0250_ps",
+        "image": "part5/wd0250_ps_image.nii.gz",
+        "mask": "part5/wd0250_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0251_ps",
+        "image": "part5/wd0251_ps_image.nii.gz",
+        "mask": "part5/wd0251_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0253_ps",
+        "image": "part5/wd0253_ps_image.nii.gz",
+        "mask": "part5/wd0253_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0255_ps",
+        "image": "part5/wd0255_ps_image.nii.gz",
+        "mask": "part5/wd0255_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0256_ps",
+        "image": "part5/wd0256_ps_image.nii.gz",
+        "mask": "part5/wd0256_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0257_ps",
+        "image": "part5/wd0257_ps_image.nii.gz",
+        "mask": "part5/wd0257_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0258_ps",
+        "image": "part5/wd0258_ps_image.nii.gz",
+        "mask": "part5/wd0258_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0259_ps",
+        "image": "part5/wd0259_ps_image.nii.gz",
+        "mask": "part5/wd0259_ps_mask.nii.gz",
+        "has_stones": false
+      }
+    ],
+    "val": [
+      {
+        "patient_id": "wd0008_ps",
+        "image": "part1/wd0008_ps_image.nii.gz",
+        "mask": "part1/wd0008_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0013_ps",
+        "image": "part1/wd0013_ps_image.nii.gz",
+        "mask": "part1/wd0013_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0014_ps",
+        "image": "part1/wd0014_ps_image.nii.gz",
+        "mask": "part1/wd0014_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0016_ps",
+        "image": "part1/wd0016_ps_image.nii.gz",
+        "mask": "part1/wd0016_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0027_ps",
+        "image": "part1/wd0027_ps_image.nii.gz",
+        "mask": "part1/wd0027_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0029_ps",
+        "image": "part1/wd0029_ps_image.nii.gz",
+        "mask": "part1/wd0029_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0031_ps",
+        "image": "part1/wd0031_ps_image.nii.gz",
+        "mask": "part1/wd0031_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0051_ps",
+        "image": "part2/wd0051_ps_image.nii.gz",
+        "mask": "part2/wd0051_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0060_ps",
+        "image": "part2/wd0060_ps_image.nii.gz",
+        "mask": "part2/wd0060_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0073_ps",
+        "image": "part2/wd0073_ps_image.nii.gz",
+        "mask": "part2/wd0073_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0075_ps",
+        "image": "part2/wd0075_ps_image.nii.gz",
+        "mask": "part2/wd0075_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0081_ps",
+        "image": "part2/wd0081_ps_image.nii.gz",
+        "mask": "part2/wd0081_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0088_ps",
+        "image": "part2/wd0088_ps_image.nii.gz",
+        "mask": "part2/wd0088_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0091_ps",
+        "image": "part2/wd0091_ps_image.nii.gz",
+        "mask": "part2/wd0091_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0107_ps",
+        "image": "part3/wd0107_ps_image.nii.gz",
+        "mask": "part3/wd0107_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0110_ps",
+        "image": "part3/wd0110_ps_image.nii.gz",
+        "mask": "part3/wd0110_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0128_ps",
+        "image": "part3/wd0128_ps_image.nii.gz",
+        "mask": "part3/wd0128_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0129_ps",
+        "image": "part3/wd0129_ps_image.nii.gz",
+        "mask": "part3/wd0129_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0130_ps",
+        "image": "part3/wd0130_ps_image.nii.gz",
+        "mask": "part3/wd0130_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0151_ps",
+        "image": "part4/wd0151_ps_image.nii.gz",
+        "mask": "part4/wd0151_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0152_ps",
+        "image": "part4/wd0152_ps_image.nii.gz",
+        "mask": "part4/wd0152_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0157_ps",
+        "image": "part4/wd0157_ps_image.nii.gz",
+        "mask": "part4/wd0157_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0163_ps",
+        "image": "part4/wd0163_ps_image.nii.gz",
+        "mask": "part4/wd0163_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0170_ps",
+        "image": "part4/wd0170_ps_image.nii.gz",
+        "mask": "part4/wd0170_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0174_ps",
+        "image": "part4/wd0174_ps_image.nii.gz",
+        "mask": "part4/wd0174_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0180_ps",
+        "image": "part4/wd0180_ps_image.nii.gz",
+        "mask": "part4/wd0180_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0183_ps",
+        "image": "part4/wd0183_ps_image.nii.gz",
+        "mask": "part4/wd0183_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0192_ps",
+        "image": "part4/wd0192_ps_image.nii.gz",
+        "mask": "part4/wd0192_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0193_ps",
+        "image": "part4/wd0193_ps_image.nii.gz",
+        "mask": "part4/wd0193_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0206_ps",
+        "image": "part5/wd0206_ps_image.nii.gz",
+        "mask": "part5/wd0206_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0209_ps",
+        "image": "part5/wd0209_ps_image.nii.gz",
+        "mask": "part5/wd0209_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0218_ps",
+        "image": "part5/wd0218_ps_image.nii.gz",
+        "mask": "part5/wd0218_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0222_ps",
+        "image": "part5/wd0222_ps_image.nii.gz",
+        "mask": "part5/wd0222_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0227_ps",
+        "image": "part5/wd0227_ps_image.nii.gz",
+        "mask": "part5/wd0227_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0229_ps",
+        "image": "part5/wd0229_ps_image.nii.gz",
+        "mask": "part5/wd0229_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0232_ps",
+        "image": "part5/wd0232_ps_image.nii.gz",
+        "mask": "part5/wd0232_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0238_ps",
+        "image": "part5/wd0238_ps_image.nii.gz",
+        "mask": "part5/wd0238_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0249_ps",
+        "image": "part5/wd0249_ps_image.nii.gz",
+        "mask": "part5/wd0249_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0252_ps",
+        "image": "part5/wd0252_ps_image.nii.gz",
+        "mask": "part5/wd0252_ps_mask.nii.gz",
+        "has_stones": false
+      }
+    ],
+    "test": [
+      {
+        "patient_id": "wd0007_ps",
+        "image": "part1/wd0007_ps_image.nii.gz",
+        "mask": "part1/wd0007_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0017_ps",
+        "image": "part1/wd0017_ps_image.nii.gz",
+        "mask": "part1/wd0017_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0019_ps",
+        "image": "part1/wd0019_ps_image.nii.gz",
+        "mask": "part1/wd0019_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0020_ps",
+        "image": "part1/wd0020_ps_image.nii.gz",
+        "mask": "part1/wd0020_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0030_ps",
+        "image": "part1/wd0030_ps_image.nii.gz",
+        "mask": "part1/wd0030_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0034_ps",
+        "image": "part1/wd0034_ps_image.nii.gz",
+        "mask": "part1/wd0034_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0037_ps",
+        "image": "part1/wd0037_ps_image.nii.gz",
+        "mask": "part1/wd0037_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0040_ps",
+        "image": "part1/wd0040_ps_image.nii.gz",
+        "mask": "part1/wd0040_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0046_ps",
+        "image": "part1/wd0046_ps_image.nii.gz",
+        "mask": "part1/wd0046_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0053_ps",
+        "image": "part2/wd0053_ps_image.nii.gz",
+        "mask": "part2/wd0053_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0058_ps",
+        "image": "part2/wd0058_ps_image.nii.gz",
+        "mask": "part2/wd0058_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0066_ps",
+        "image": "part2/wd0066_ps_image.nii.gz",
+        "mask": "part2/wd0066_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0067_ps",
+        "image": "part2/wd0067_ps_image.nii.gz",
+        "mask": "part2/wd0067_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0072_ps",
+        "image": "part2/wd0072_ps_image.nii.gz",
+        "mask": "part2/wd0072_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0077_ps",
+        "image": "part2/wd0077_ps_image.nii.gz",
+        "mask": "part2/wd0077_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0078_ps",
+        "image": "part2/wd0078_ps_image.nii.gz",
+        "mask": "part2/wd0078_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0089_ps",
+        "image": "part2/wd0089_ps_image.nii.gz",
+        "mask": "part2/wd0089_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0097_ps",
+        "image": "part2/wd0097_ps_image.nii.gz",
+        "mask": "part2/wd0097_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0100_ps",
+        "image": "part3/wd0100_ps_image.nii.gz",
+        "mask": "part3/wd0100_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0102_ps",
+        "image": "part3/wd0102_ps_image.nii.gz",
+        "mask": "part3/wd0102_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0117_ps",
+        "image": "part3/wd0117_ps_image.nii.gz",
+        "mask": "part3/wd0117_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0119_ps",
+        "image": "part3/wd0119_ps_image.nii.gz",
+        "mask": "part3/wd0119_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0120_ps",
+        "image": "part3/wd0120_ps_image.nii.gz",
+        "mask": "part3/wd0120_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0121_ps",
+        "image": "part3/wd0121_ps_image.nii.gz",
+        "mask": "part3/wd0121_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0123_ps",
+        "image": "part3/wd0123_ps_image.nii.gz",
+        "mask": "part3/wd0123_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0124_ps",
+        "image": "part3/wd0124_ps_image.nii.gz",
+        "mask": "part3/wd0124_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0150_ps",
+        "image": "part4/wd0150_ps_image.nii.gz",
+        "mask": "part4/wd0150_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0175_ps",
+        "image": "part4/wd0175_ps_image.nii.gz",
+        "mask": "part4/wd0175_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0179_ps",
+        "image": "part4/wd0179_ps_image.nii.gz",
+        "mask": "part4/wd0179_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0185_ps",
+        "image": "part4/wd0185_ps_image.nii.gz",
+        "mask": "part4/wd0185_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0198_ps",
+        "image": "part4/wd0198_ps_image.nii.gz",
+        "mask": "part4/wd0198_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0199_ps",
+        "image": "part4/wd0199_ps_image.nii.gz",
+        "mask": "part4/wd0199_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0202_ps",
+        "image": "part5/wd0202_ps_image.nii.gz",
+        "mask": "part5/wd0202_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0205_ps",
+        "image": "part5/wd0205_ps_image.nii.gz",
+        "mask": "part5/wd0205_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0213_ps",
+        "image": "part5/wd0213_ps_image.nii.gz",
+        "mask": "part5/wd0213_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0215_ps",
+        "image": "part5/wd0215_ps_image.nii.gz",
+        "mask": "part5/wd0215_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0224_ps",
+        "image": "part5/wd0224_ps_image.nii.gz",
+        "mask": "part5/wd0224_ps_mask.nii.gz",
+        "has_stones": true
+      },
+      {
+        "patient_id": "wd0248_ps",
+        "image": "part5/wd0248_ps_image.nii.gz",
+        "mask": "part5/wd0248_ps_mask.nii.gz",
+        "has_stones": false
+      },
+      {
+        "patient_id": "wd0254_ps",
+        "image": "part5/wd0254_ps_image.nii.gz",
+        "mask": "part5/wd0254_ps_mask.nii.gz",
+        "has_stones": true
+      }
+    ]
+  }
+}
