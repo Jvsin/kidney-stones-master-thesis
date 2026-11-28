@@ -26,7 +26,7 @@ Skrypt wyszukuje pary `*_image.nii.gz` i `*_mask.nii.gz` we wszystkich częścia
 zbioru. Wypisuje dla każdego pacjenta wymiary, rozmiar woksela i liczebność
 etykiet oraz porównuje geometrię obrazu i maski. Na końcu podaje rozkład rozmiarów
 wokseli, listy masek pustych i pozbawionych każdej z etykiet oraz wykryte problemy.
-Domyślnie oczekuje 260 par; inną liczbę można podać przez `--expected-count`.
+domyślnie oczekuje 260 par; inną liczbę można podać przez `--expected-count`.
 Porównanie z orientacyjnymi zakresami spacingu używa zaokrąglenia do liczby miejsc
 po przecinku podanej dla danego zakresu (trzy dla XY, dwa dla Z).
 Znaczenie etykiet wymaga potwierdzenia w dokumentacji zbioru; po potwierdzeniu można
@@ -57,13 +57,18 @@ etykietę 1. Objętość jest liczona na podstawie liczby wokseli składowej ora
 rzeczywistego spacingu obrazu w mm³.
 
 Aktualny zbiór zawiera 51 pacjentów bez kamienia, 14 z największym kamieniem
-małym, 40 średnim i 155 dużym. Podział zapisany dla `seed=42`:
+małym, 40 średnim i 154 dużym. Podział zapisany dla `seed=42`:
 
 | Zbiór | Pacjenci | Bez kamienia | Małe | Średnie | Duże |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Train | 182 | 36 | 10 | 28 | 108 |
+| Train | 181 | 35 | 10 | 28 | 108 |
 | Validation | 39 | 8 | 2 | 6 | 23 |
-| Test | 39 | 7 | 2 | 6 | 24 |
+| Test | 39 | 8 | 2 | 6 | 23 |
+
+Podział domyślnie wyklucza pacjenta `wd0218_ps`, ponieważ etykieta 1 oznacza
+u niego całą nerkę zamiast kamienia. Pliki źródłowe pozostają nietknięte, ale
+pacjent nie trafia do żadnego ze zbiorów. Dodatkowe wykluczenia można przekazać
+przez powtarzaną opcję `--exclude-patient`.
 
 ## Viewer NIfTI
 

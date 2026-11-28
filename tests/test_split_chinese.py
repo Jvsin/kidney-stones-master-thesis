@@ -10,7 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.split_chinese import MEDIUM_MAX_MM3, SMALL_MAX_MM3, classify_patients, stratify_patients  # noqa: E402
+from tools.split_chinese import (  # noqa: E402
+    MEDIUM_MAX_MM3,
+    SMALL_MAX_MM3,
+    classify_patients,
+    create_split_manifest,
+    stratify_patients,
+)
 
 
 class SplitChineseTests(unittest.TestCase):
@@ -103,6 +109,30 @@ class SplitChineseTests(unittest.TestCase):
             self.assertEqual(classified["stone_size_class"], "medium")
             self.assertEqual(classified["largest_stone_voxels"], 36)
             self.assertEqual(classified["largest_stone_mm3"], 36.0)
+
+    def test_manifest_excludes_invalid_patient_before_splitting(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            dataset = Path(temporary_directory)
+            patient_ids = [f"valid_{index}_ps" for index in range(5)] + ["excluded_ps"]
+            for patient_id in patient_ids:
+                mask = np.ones((2, 2, 2), dtype=np.uint8)
+                nib.save(nib.Nifti1Image(mask, np.eye(4)), dataset / f"{patient_id}_mask.nii.gz")
+                nib.save(nib.Nifti1Image(mask, np.eye(4)), dataset / f"{patient_id}_image.nii.gz")
+
+            manifest = create_split_manifest(
+                dataset,
+                expected_count=5,
+                excluded_patients=("excluded_ps",),
+            )
+
+            self.assertEqual(manifest["excluded_patients"][0]["patient_id"], "excluded_ps")
+            assigned = [
+                patient["patient_id"]
+                for split in manifest["splits"].values()
+                for patient in split
+            ]
+            self.assertCountEqual(assigned, patient_ids[:-1])
+            self.assertNotIn("excluded_ps", assigned)
 
 
 if __name__ == "__main__":

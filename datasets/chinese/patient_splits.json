@@ -7,6 +7,12 @@
     "val": 0.15,
     "test": 0.15
   },
+  "excluded_patients": [
+    {
+      "patient_id": "wd0218_ps",
+      "reason": "Invalid stone mask: label 1 marks the entire kidney"
+    }
+  ],
   "stratification": "largest_stone_volume_mm3",
   "connectivity": "face (6-connected)",
   "size_thresholds_mm3": {
@@ -16,12 +22,12 @@
   },
   "summary": {
     "train": {
-      "patients": 182,
+      "patients": 181,
       "with_stones": 146,
-      "without_stones": 36,
-      "stone_prevalence": 0.8021978021978022,
+      "without_stones": 35,
+      "stone_prevalence": 0.8066298342541437,
       "size_distribution": {
-        "none": 36,
+        "none": 35,
         "small": 10,
         "medium": 28,
         "large": 108
@@ -41,14 +47,14 @@
     },
     "test": {
       "patients": 39,
-      "with_stones": 32,
-      "without_stones": 7,
-      "stone_prevalence": 0.8205128205128205,
+      "with_stones": 31,
+      "without_stones": 8,
+      "stone_prevalence": 0.7948717948717948,
       "size_distribution": {
-        "none": 7,
+        "none": 8,
         "small": 2,
         "medium": 6,
-        "large": 24
+        "large": 23
       }
     }
   },
@@ -1432,15 +1438,6 @@
         "largest_stone_mm3": 34233.896881
       },
       {
-        "patient_id": "wd0218_ps",
-        "image": "part5/wd0218_ps_image.nii.gz",
-        "mask": "part5/wd0218_ps_mask.nii.gz",
-        "has_stones": true,
-        "stone_size_class": "large",
-        "largest_stone_voxels": 239404,
-        "largest_stone_mm3": 289355.728528
-      },
-      {
         "patient_id": "wd0219_ps",
         "image": "part5/wd0219_ps_image.nii.gz",
         "mask": "part5/wd0219_ps_mask.nii.gz",
@@ -1495,6 +1492,15 @@
         "largest_stone_mm3": 1152.746481
       },
       {
+        "patient_id": "wd0225_ps",
+        "image": "part5/wd0225_ps_image.nii.gz",
+        "mask": "part5/wd0225_ps_mask.nii.gz",
+        "has_stones": true,
+        "stone_size_class": "large",
+        "largest_stone_voxels": 2206,
+        "largest_stone_mm3": 2958.477595
+      },
+      {
         "patient_id": "wd0227_ps",
         "image": "part5/wd0227_ps_image.nii.gz",
         "mask": "part5/wd0227_ps_mask.nii.gz",
@@ -1504,15 +1510,6 @@
         "largest_stone_mm3": 225.563637
       },
       {
-        "patient_id": "wd0228_ps",
-        "image": "part5/wd0228_ps_image.nii.gz",
-        "mask": "part5/wd0228_ps_mask.nii.gz",
-        "has_stones": true,
-        "stone_size_class": "large",
-        "largest_stone_voxels": 1317,
-        "largest_stone_mm3": 1177.417774
-      },
-      {
         "patient_id": "wd0229_ps",
         "image": "part5/wd0229_ps_image.nii.gz",
         "mask": "part5/wd0229_ps_mask.nii.gz",
@@ -1520,6 +1517,15 @@
         "stone_size_class": "large",
         "largest_stone_voxels": 4401,
         "largest_stone_mm3": 6749.009904
+      },
+      {
+        "patient_id": "wd0230_ps",
+        "image": "part5/wd0230_ps_image.nii.gz",
+        "mask": "part5/wd0230_ps_mask.nii.gz",
+        "has_stones": true,
+        "stone_size_class": "large",
+        "largest_stone_voxels": 6314,
+        "largest_stone_mm3": 6370.753387
       },
       {
         "patient_id": "wd0231_ps",
@@ -1549,13 +1555,13 @@
         "largest_stone_mm3": 0.0
       },
       {
-        "patient_id": "wd0234_ps",
-        "image": "part5/wd0234_ps_image.nii.gz",
-        "mask": "part5/wd0234_ps_mask.nii.gz",
+        "patient_id": "wd0235_ps",
+        "image": "part5/wd0235_ps_image.nii.gz",
+        "mask": "part5/wd0235_ps_mask.nii.gz",
         "has_stones": true,
         "stone_size_class": "large",
-        "largest_stone_voxels": 310,
-        "largest_stone_mm3": 519.026408
+        "largest_stone_voxels": 3655,
+        "largest_stone_mm3": 2233.694743
       },
       {
         "patient_id": "wd0236_ps",
@@ -1682,15 +1688,6 @@
         "stone_size_class": "none",
         "largest_stone_voxels": 0,
         "largest_stone_mm3": 0.0
-      },
-      {
-        "patient_id": "wd0259_ps",
-        "image": "part5/wd0259_ps_image.nii.gz",
-        "mask": "part5/wd0259_ps_mask.nii.gz",
-        "has_stones": false,
-        "stone_size_class": "none",
-        "largest_stone_voxels": 0,
-        "largest_stone_mm3": 0.0
       }
     ],
     "val": [
@@ -1725,15 +1722,6 @@
         "patient_id": "wd0016_ps",
         "image": "part1/wd0016_ps_image.nii.gz",
         "mask": "part1/wd0016_ps_mask.nii.gz",
-        "has_stones": false,
-        "stone_size_class": "none",
-        "largest_stone_voxels": 0,
-        "largest_stone_mm3": 0.0
-      },
-      {
-        "patient_id": "wd0020_ps",
-        "image": "part1/wd0020_ps_image.nii.gz",
-        "mask": "part1/wd0020_ps_mask.nii.gz",
         "has_stones": false,
         "stone_size_class": "none",
         "largest_stone_voxels": 0,
@@ -1992,22 +1980,22 @@
         "largest_stone_mm3": 40.182592
       },
       {
-        "patient_id": "wd0226_ps",
-        "image": "part5/wd0226_ps_image.nii.gz",
-        "mask": "part5/wd0226_ps_mask.nii.gz",
+        "patient_id": "wd0228_ps",
+        "image": "part5/wd0228_ps_image.nii.gz",
+        "mask": "part5/wd0228_ps_mask.nii.gz",
         "has_stones": true,
         "stone_size_class": "large",
-        "largest_stone_voxels": 3959,
-        "largest_stone_mm3": 2740.3495
+        "largest_stone_voxels": 1317,
+        "largest_stone_mm3": 1177.417774
       },
       {
-        "patient_id": "wd0230_ps",
-        "image": "part5/wd0230_ps_image.nii.gz",
-        "mask": "part5/wd0230_ps_mask.nii.gz",
+        "patient_id": "wd0234_ps",
+        "image": "part5/wd0234_ps_image.nii.gz",
+        "mask": "part5/wd0234_ps_mask.nii.gz",
         "has_stones": true,
         "stone_size_class": "large",
-        "largest_stone_voxels": 6314,
-        "largest_stone_mm3": 6370.753387
+        "largest_stone_voxels": 310,
+        "largest_stone_mm3": 519.026408
       },
       {
         "patient_id": "wd0241_ps",
@@ -2044,6 +2032,15 @@
         "stone_size_class": "medium",
         "largest_stone_voxels": 21,
         "largest_stone_mm3": 29.839726
+      },
+      {
+        "patient_id": "wd0259_ps",
+        "image": "part5/wd0259_ps_image.nii.gz",
+        "mask": "part5/wd0259_ps_mask.nii.gz",
+        "has_stones": false,
+        "stone_size_class": "none",
+        "largest_stone_voxels": 0,
+        "largest_stone_mm3": 0.0
       }
     ],
     "test": [
@@ -2069,6 +2066,15 @@
         "patient_id": "wd0017_ps",
         "image": "part1/wd0017_ps_image.nii.gz",
         "mask": "part1/wd0017_ps_mask.nii.gz",
+        "has_stones": false,
+        "stone_size_class": "none",
+        "largest_stone_voxels": 0,
+        "largest_stone_mm3": 0.0
+      },
+      {
+        "patient_id": "wd0020_ps",
+        "image": "part1/wd0020_ps_image.nii.gz",
+        "mask": "part1/wd0020_ps_mask.nii.gz",
         "has_stones": false,
         "stone_size_class": "none",
         "largest_stone_voxels": 0,
@@ -2336,22 +2342,13 @@
         "largest_stone_mm3": 4150.527826
       },
       {
-        "patient_id": "wd0225_ps",
-        "image": "part5/wd0225_ps_image.nii.gz",
-        "mask": "part5/wd0225_ps_mask.nii.gz",
+        "patient_id": "wd0226_ps",
+        "image": "part5/wd0226_ps_image.nii.gz",
+        "mask": "part5/wd0226_ps_mask.nii.gz",
         "has_stones": true,
         "stone_size_class": "large",
-        "largest_stone_voxels": 2206,
-        "largest_stone_mm3": 2958.477595
-      },
-      {
-        "patient_id": "wd0235_ps",
-        "image": "part5/wd0235_ps_image.nii.gz",
-        "mask": "part5/wd0235_ps_mask.nii.gz",
-        "has_stones": true,
-        "stone_size_class": "large",
-        "largest_stone_voxels": 3655,
-        "largest_stone_mm3": 2233.694743
+        "largest_stone_voxels": 3959,
+        "largest_stone_mm3": 2740.3495
       },
       {
         "patient_id": "wd0237_ps",

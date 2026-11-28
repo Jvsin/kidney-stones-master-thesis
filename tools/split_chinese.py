@@ -18,6 +18,7 @@ SPLIT_NAMES = ("train", "val", "test")
 SIZE_CLASSES = ("none", "small", "medium", "large")
 SMALL_MAX_MM3 = 28.0
 MEDIUM_MAX_MM3 = 315.0
+DEFAULT_EXCLUDED_PATIENTS = ("wd0218_ps",)
 
 
 def discover_patients(dataset: Path) -> list[dict[str, Any]]:
@@ -201,8 +202,17 @@ def create_split_manifest(
     ratios: tuple[float, float, float] = DEFAULT_RATIOS,
     seed: int = 42,
     expected_count: int | None = None,
+    excluded_patients: tuple[str, ...] = DEFAULT_EXCLUDED_PATIENTS,
 ) -> dict[str, Any]:
-    patients = classify_patients(dataset, discover_patients(dataset), stone_label)
+    discovered = discover_patients(dataset)
+    known_patient_ids = {patient["patient_id"] for patient in discovered}
+    unknown_exclusions = set(excluded_patients) - known_patient_ids
+    if unknown_exclusions:
+        raise ValueError(f"Excluded patients not found: {', '.join(sorted(unknown_exclusions))}")
+    included = [
+        patient for patient in discovered if patient["patient_id"] not in excluded_patients
+    ]
+    patients = classify_patients(dataset, included, stone_label)
     if expected_count is not None and len(patients) != expected_count:
         raise ValueError(f"Expected {expected_count} patients, found {len(patients)}")
     splits = stratify_patients(patients, ratios, seed)
@@ -224,6 +234,13 @@ def create_split_manifest(
         "seed": seed,
         "stone_label": stone_label,
         "ratios": dict(zip(SPLIT_NAMES, ratios)),
+        "excluded_patients": [
+            {
+                "patient_id": patient_id,
+                "reason": "Invalid stone mask: label 1 marks the entire kidney",
+            }
+            for patient_id in excluded_patients
+        ],
         "stratification": "largest_stone_volume_mm3",
         "connectivity": "face (6-connected)",
         "size_thresholds_mm3": {
@@ -241,7 +258,14 @@ def main() -> int:
     parser.add_argument("dataset", nargs="?", type=Path, default=ROOT / "datasets" / "chinese")
     parser.add_argument("--stone-label", type=int, choices=(1, 2), default=1)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--expected-count", type=int, default=260)
+    parser.add_argument("--expected-count", type=int, default=259)
+    parser.add_argument(
+        "--exclude-patient",
+        action="append",
+        dest="excluded_patients",
+        default=list(DEFAULT_EXCLUDED_PATIENTS),
+        help="Patient ID excluded from the split; repeat to exclude more patients",
+    )
     parser.add_argument(
         "--output",
         type=Path,
@@ -251,7 +275,12 @@ def main() -> int:
 
     try:
         manifest = create_split_manifest(
-            args.dataset, args.stone_label, DEFAULT_RATIOS, args.seed, args.expected_count
+            args.dataset,
+            args.stone_label,
+            DEFAULT_RATIOS,
+            args.seed,
+            args.expected_count,
+            tuple(args.excluded_patients),
         )
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(
